@@ -2,6 +2,7 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
 
 public class Settings {
     public int playerCount;
@@ -38,7 +39,7 @@ public class Settings {
 
         applyButton.addActionListener(event -> {
             apply(); 
-            System.out.println(game.numOfPlayers);
+            System.out.println(game.numOfPlayers.toString());
             game.startGame = true;
             
             

@@ -135,6 +135,9 @@ public class BoardPanel extends JPanel implements ActionListener{
             settingsPanel.howManyRounds.setVisible(false);
             settingsPanel.roundsField.setVisible(false);
             settingsPanel.playerField1.setVisible(false);
+            settingsPanel.playerField2.setVisible(false);
+            settingsPanel.playerField3.setVisible(false);
+            settingsPanel.playerField4.setVisible(false);
             settingsPanel.moneyField.setVisible(false);
             settingsPanel.applyButton.setVisible(false);
             settingsPanel.player1.setVisible(false);
@@ -214,9 +217,7 @@ public class BoardPanel extends JPanel implements ActionListener{
             if (bgImage != null) {
                 g.drawImage(bgImage, margin, margin, boardsize, boardsize, this);
             }
-            if (p1Image != null){
-                g.drawImage(p1Image, start, start, pieceSize, pieceSize, this);
-            }
+            
 
             if (diceTimer.isRunning()) {
                 if (diceIMG != null){
@@ -228,6 +229,7 @@ public class BoardPanel extends JPanel implements ActionListener{
             }
 
         }
+        game.drawIcons(g);
         
         
     }
