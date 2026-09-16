@@ -1,3 +1,5 @@
+package Java.MONOPOLY;
+
 import java.util.List;
 import java.util.*;
 import java.awt.*;
@@ -32,7 +34,7 @@ public class game{
     public boolean startTurn = false;
     public boolean endTurn = false;
 
-    public List<player> numOfPlayers = new ArrayList();
+    public List<player> numOfPlayers =   new ArrayList();
 
     public game(){
         turnSystem();

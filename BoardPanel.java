@@ -1,3 +1,5 @@
+package Java.MONOPOLY;
+
 
 import java.awt.*; 
 import javax.swing.*;

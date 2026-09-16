@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Settings
-comment1.params=panel
-comment1.target=Settings(BoardPanel)
+comment1.params=panel\ game
+comment1.target=Settings(BoardPanel,\ game)
 comment2.params=
 comment2.target=void\ apply()
 comment3.params=

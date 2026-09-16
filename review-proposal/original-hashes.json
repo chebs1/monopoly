@@ -1,0 +1,46 @@
+[
+    {
+        "Path":  "C:\\Users\\travi\\Documents\\MONOPOLY\\MONOPOLY\\AssetEnum.java",
+        "Hash":  "7DF8439EFF1F8C86245D2CE06FB2AA5CBF06B12A8D50DD770374560B54551EC5"
+    },
+    {
+        "Path":  "C:\\Users\\travi\\Documents\\MONOPOLY\\MONOPOLY\\AssetManager.java",
+        "Hash":  "24F435A912A685295F1EE68548A20C20268997AD578F281A08898B9CBC65D281"
+    },
+    {
+        "Path":  "C:\\Users\\travi\\Documents\\MONOPOLY\\MONOPOLY\\Board.java",
+        "Hash":  "F5165136C9A3226FAA346FA04E98DF6554CB743014715993D0BF97FF1DE90274"
+    },
+    {
+        "Path":  "C:\\Users\\travi\\Documents\\MONOPOLY\\MONOPOLY\\BoardPanel.java",
+        "Hash":  "BE0CBB2E7B9B175BB436BD4F0A5A0A8EF93EECA26EC8FBDF73A57FB6EDDC92BC"
+    },
+    {
+        "Path":  "C:\\Users\\travi\\Documents\\MONOPOLY\\MONOPOLY\\dice.java",
+        "Hash":  "44F360061609F9205656B8B649C01754C6516014081C4CC4D046D46A53FB0E4B"
+    },
+    {
+        "Path":  "C:\\Users\\travi\\Documents\\MONOPOLY\\MONOPOLY\\game.java",
+        "Hash":  "FE59E85190B1CC7825ACA9BF712BE4675E2CE55694CFBC275373472F9E522365"
+    },
+    {
+        "Path":  "C:\\Users\\travi\\Documents\\MONOPOLY\\MONOPOLY\\main.java",
+        "Hash":  "8D7960866DEF6A8E65A234CEB9E942839AB6EC32CF5A24BBDB5405CB7ED3B14F"
+    },
+    {
+        "Path":  "C:\\Users\\travi\\Documents\\MONOPOLY\\MONOPOLY\\player.java",
+        "Hash":  "B2CB6CB86570FD9487C6D3485827E8FC6178489765A0E77FD1E4A03155E98ACF"
+    },
+    {
+        "Path":  "C:\\Users\\travi\\Documents\\MONOPOLY\\MONOPOLY\\property.java",
+        "Hash":  "39C75BAD111054FF6D905689394DB61BE64CB605F92C57641E5DC03A2B007754"
+    },
+    {
+        "Path":  "C:\\Users\\travi\\Documents\\MONOPOLY\\MONOPOLY\\Settings.java",
+        "Hash":  "F761CFBCF74ADE9CC182DF4E73B2F50C5AF293C29413AF2E107993AED82F51D6"
+    },
+    {
+        "Path":  "C:\\Users\\travi\\Documents\\MONOPOLY\\MONOPOLY\\Spaces.java",
+        "Hash":  "6F9383A6C6B35A461003BD4F58CD39239A2F576B5E972AB67B904E99E1371112"
+    }
+]
