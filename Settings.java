@@ -1,4 +1,4 @@
-package Java.MONOPOLY;
+ 
 
 
 import javax.swing.*;
@@ -80,11 +80,11 @@ public class Settings {
             });
 
         moneyField.addActionListener(event -> {
-                    startingMoney = Integer.valueOf(moneyField.getText());
+                    
             });
 
         roundsField.addActionListener(event -> {
-                    rounds = Integer.valueOf(roundsField.getText());
+                   
             });
 
         howManyPlayers.setFont(new Font("Arial", Font.BOLD, 16));
@@ -159,8 +159,20 @@ public class Settings {
     }
 
     public void apply() {
-        startingMoney = Integer.valueOf(moneyField.getText());
-        rounds = Integer.valueOf(roundsField.getText());
+        try{ int startingMoney = Integer.parseInt(moneyField.getText());
+                    startingMoney = Integer.valueOf(moneyField.getText());
+                    System.out.println("Money Valid");
+                    }
+                    catch (NumberFormatException e) {
+                    System.out.println("Money Not Valid");
+                    }
+        try{int rounds = Integer.parseInt(roundsField.getText());
+                        rounds = Integer.valueOf(roundsField.getText());
+                        System.out.println("Rounds Valid");
+                    }
+                    catch(NumberFormatException e){
+                    System.out.println("Rounds Not Valid");
+                    }
         switch(playerCount){
                 case 1:
                     game.addPlayers(new player(p1, startingMoney, startingPosition));
@@ -181,6 +193,15 @@ public class Settings {
                     game.addPlayers(new player(p4, startingMoney, startingPosition));
                     break;
           }
+    }
+    
+    public void isNum(){
+        try{ int money = Integer.parseInt(moneyField.getText());
+                    startingMoney = Integer.valueOf(moneyField.getText());
+                    }
+                    catch (NumberFormatException e) {
+                    System.out.println("Not A Valid Number");
+                    }
     }
 
     public void updatePFields() {

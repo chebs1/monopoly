@@ -1,4 +1,3 @@
-package Java.MONOPOLY;
 
 import java.util.List;
 import java.util.*;
@@ -38,8 +37,6 @@ public class game{
 
     public game(){
         turnSystem();
-        
-        
         try
         {
             loadImage();
@@ -65,7 +62,7 @@ public class game{
     public void addPlayers(player newPlayer){
         numOfPlayers.add(newPlayer);
     }
-    
+
     public int getCurrentTurn(){
         return currentTurn;
     }
@@ -75,7 +72,9 @@ public class game{
             for(int i = 0; i<numOfPlayers.size();){
                 switch(i){
                     case 0:
+                    
                         startTurn=true;
+                        turn();
                         if(endTurn){
                             currentTurn++;
                             i++;
@@ -83,6 +82,7 @@ public class game{
                         break;
                     case 1:
                         startTurn=true;
+                        turn();
                         if(endTurn){
                             currentTurn++;
                             i++;
@@ -90,6 +90,7 @@ public class game{
                         break;
                     case 2:
                         startTurn=true;
+                        turn();
                         if(endTurn){
                             currentTurn++;
                             i++;
@@ -97,6 +98,7 @@ public class game{
                         break;
                     case 3:
                         startTurn=true;
+                        turn();
                         if(endTurn){
                             currentTurn=0;
                             i = 0;
@@ -109,40 +111,69 @@ public class game{
 
     public void drawIcons(Graphics g){
         if(startGame){
-            for(int o=0; o<numOfPlayers.size();o++){
-                for (int i = 0; i < numOfPlayers.size();){
-                    switch(i){
-                        case 0:
-                            if (p1Image != null){
-                                g.drawImage(p1Image, start, start, pieceSize, pieceSize, null);
-                            }
-                            break;
-                        case 1:
-                            if(p2Image != null){
-                                g.drawImage(p2Image, start*o, start, pieceSize, pieceSize, null);
-                            }
-                            break;
-                        case 2:
-                            if(p3Image != null){
-                                g.drawImage(p3Image, start, start*o, pieceSize, pieceSize, null);
-                            }
-                            break;
-                        case 4:
-                            if(p4Image != null){
-                                g.drawImage(p4Image, start*o, start*o, pieceSize, pieceSize, null);
-                            }
-                            break;
-
+            int count = numOfPlayers.size();
+            switch(count){
+                case 1:
+                    if (p1Image != null){
+                        g.drawImage(p1Image, start, start, pieceSize, pieceSize, null);
                     }
-                }
+                    break;
+                case 2:
+                    if (p1Image != null){
+                        g.drawImage(p1Image, start, start, pieceSize, pieceSize, null);
+                    }
+                    if(p2Image != null){
+                        g.drawImage(p2Image, start, start+50, pieceSize, pieceSize, null);
+                    }
+                    break;
+                case 3:
+                    if (p1Image != null){
+                        g.drawImage(p1Image, start, start, pieceSize, pieceSize, null);
+                    }
+                    if(p2Image != null){
+                        g.drawImage(p2Image, start, start+50, pieceSize, pieceSize, null);
+                    }
+                    if(p3Image != null){
+                        g.drawImage(p3Image, start+50, start, pieceSize, pieceSize, null);
+                    }
+                    break;
+                case 4:
+                    if (p1Image != null){
+                        g.drawImage(p1Image, start, start, pieceSize, pieceSize, null);
+                    }
+                    if(p2Image != null){
+                        g.drawImage(p2Image, start, start+50, pieceSize, pieceSize, null);
+                    }
+                    if(p3Image != null){
+                        g.drawImage(p3Image, start+50, start, pieceSize, pieceSize, null);
+                    }
+                    if(p4Image != null){
+                        g.drawImage(p4Image, start+50, start+50, pieceSize, pieceSize, null);
+                    }
+                    break;
+
             }
         }
+    }
+    
+    public void turn(){
+        bPanel.diceButton.setVisible(true);
+        if(dice.diceRolled == true){
+            bPanel.diceButton.setVisible(false);
+            moveIcons();
+            bPanel.endTurnButton.setVisible(true);
+        }
+        if(endTurn){
+            bPanel.endTurnButton.setVisible(false);
+        }
+        
     }
 
     public void moveIcons(){
         if(dice.diceRolled == true){
             movement = dice.sum;
-            Spaces.getPosition() = Spaces.getPosition() + movement;
+            spaces.position = spaces.getPosition() + movement;
+            
         }
     }
 

@@ -1,4 +1,4 @@
-package Java.MONOPOLY;
+ 
 
 
 import java.awt.*; 
@@ -116,6 +116,8 @@ public class BoardPanel extends JPanel implements ActionListener{
         if(e.getSource() == startButton){
             playing = true;  
             game.startGame = true;
+            endTurnButton.setVisible(false);
+            diceButton.setVisible(false);
         }
         if(e.getSource() == settingsButton){
             settings = true;
@@ -129,6 +131,8 @@ public class BoardPanel extends JPanel implements ActionListener{
             settingsPanel.player2.setVisible(true);
             settingsPanel.player3.setVisible(true);
             settingsPanel.player4.setVisible(true);
+            endTurnButton.setVisible(false);
+            diceButton.setVisible(false);
         }
         if(e.getSource() == backButton) {
             settings = false;
@@ -146,6 +150,8 @@ public class BoardPanel extends JPanel implements ActionListener{
             settingsPanel.player2.setVisible(false);
             settingsPanel.player3.setVisible(false);
             settingsPanel.player4.setVisible(false);
+            endTurnButton.setVisible(false);
+            diceButton.setVisible(false);
         }
         if(e.getSource() == diceButton) {
             roll = true;
