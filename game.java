@@ -15,8 +15,12 @@ public class game{
 
     int pieceSize = 50;
     int start = 742;
-    int movement;
+    private int movement;
     int currentTurn;
+    
+    int x;
+    int y;
+    
 
     String imagePath; 
     BufferedImage bgImage;
@@ -34,6 +38,7 @@ public class game{
     public boolean endTurn = false;
 
     public List<player> numOfPlayers =   new ArrayList();
+    private int currentPlayer;
 
     public game(){
         turnSystem();
@@ -66,21 +71,28 @@ public class game{
     public int getCurrentTurn(){
         return currentTurn;
     }
+    
+    public void displayTurn(){
+        System.out.println("Current Player is" + getCurrentTurn());
+    }
 
     public void turnSystem(){
         if(startGame){
             for(int i = 0; i<numOfPlayers.size();){
+                currentPlayer = i;
+                
                 switch(i){
                     case 0:
-                    
+                        displayTurn();
                         startTurn=true;
                         turn();
                         if(endTurn){
                             currentTurn++;
                             i++;
-                        }
+                        }                        
                         break;
                     case 1:
+                        displayTurn();
                         startTurn=true;
                         turn();
                         if(endTurn){
@@ -89,6 +101,7 @@ public class game{
                         }
                         break;
                     case 2:
+                        displayTurn();
                         startTurn=true;
                         turn();
                         if(endTurn){
@@ -97,6 +110,7 @@ public class game{
                         }
                         break;
                     case 3:
+                        displayTurn();
                         startTurn=true;
                         turn();
                         if(endTurn){
@@ -168,14 +182,18 @@ public class game{
         }
         
     }
+    
 
     public void moveIcons(){
         if(dice.diceRolled == true){
-            movement = dice.sum;
-            spaces.position = spaces.getPosition() + movement;
+            int oldPosition = players.getPlayerPosition();
+            players.move(dice.sum);
+            int newPosition = players.getPlayerPosition();
+            System.out.println("U Moved to Position" + newPosition);
+            
             
         }
     }
-
+    
 }    
 

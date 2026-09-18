@@ -182,7 +182,7 @@ public class BoardPanel extends JPanel implements ActionListener{
         startButton.setVisible(!playing);
         settingsButton.setVisible(!playing);
         diceButton.setVisible(playing);
-
+        endTurnButton.setVisible(playing);
         backButton.setVisible(settings);
 
         if(!playing){
