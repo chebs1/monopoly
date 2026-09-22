@@ -8,8 +8,10 @@ import java.awt.Color;
 
 public class Board{
     List<Spaces> spaces = new ArrayList<>();
+    List<Integer> positions;
     public Board(){
         createBoard();
+        positions = getSpaceLocation();
     }
 
     private void createBoard(){
@@ -54,9 +56,19 @@ public class Board{
         spaces.add(new Spaces("Luxury Tax", 38));
         spaces.add(new property("Boardwalk", 39, 400, 2, new Color(2, 132, 45)));
     }
+    
+    public List<Integer> getSpaceLocation() {
+        List<Integer> positions = new ArrayList<>();
+        
+        for (Spaces s : spaces) {
+            positions.add(s.getPosition());
+        }
+        
+        return positions;
+    }
 
     public Spaces getSpaces(int position){
         return spaces.get(position);
     }
-
+    
 }

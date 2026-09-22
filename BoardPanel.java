@@ -12,7 +12,7 @@ public class BoardPanel extends JPanel implements ActionListener{
     int cornerSize = 162;
     int boardsize = 792;
     int propertyHeight = cornerSize;
-    int propertyWidth = (boardsize - (2*cornerSize))/9;;
+    int propertyWidth = (boardsize - (2*cornerSize))/9;; //66
     int pieceSize = 50;
     int start = 742;
     public boolean playing = false;

@@ -17,9 +17,12 @@ public class game{
     int start = 742;
     private int movement;
     int currentTurn;
-    
+
     int x;
     int y;
+    int xDirection;
+    int yDirection;
+    int speed;
     
 
     String imagePath; 
@@ -71,7 +74,7 @@ public class game{
     public int getCurrentTurn(){
         return currentTurn;
     }
-    
+
     public void displayTurn(){
         System.out.println("Current Player is" + getCurrentTurn());
     }
@@ -80,7 +83,7 @@ public class game{
         if(startGame){
             for(int i = 0; i<numOfPlayers.size();){
                 currentPlayer = i;
-                
+
                 switch(i){
                     case 0:
                         displayTurn();
@@ -169,7 +172,7 @@ public class game{
             }
         }
     }
-    
+
     public void turn(){
         bPanel.diceButton.setVisible(true);
         if(dice.diceRolled == true){
@@ -180,9 +183,13 @@ public class game{
         if(endTurn){
             bPanel.endTurnButton.setVisible(false);
         }
-        
+
     }
-    
+
+    public void moveTo(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
 
     public void moveIcons(){
         if(dice.diceRolled == true){
@@ -191,9 +198,16 @@ public class game{
             int newPosition = players.getPlayerPosition();
             System.out.println("U Moved to Position" + newPosition);
             
+            switch(currentPlayer){
+                case 0:
+                    //g.drawImage(p1IMG,)
+            }
+            
+            
+            
             
         }
     }
-    
+
 }    
 

@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=AbstractSpace
+comment1.params=position
+comment1.target=AbstractSpace(int)
+numComments=2
