@@ -11,7 +11,8 @@ public class game{
     private player players;
     private dice dice;
     private BoardPanel bPanel;
-    private Spaces spaces;
+    private Spaces Spaces;
+    private SpaceCoords coords;
 
     int pieceSize = 50;
     int start = 742;
@@ -198,14 +199,14 @@ public class game{
             int newPosition = players.getPlayerPosition();
             System.out.println("U Moved to Position" + newPosition);
             
+            Point position = coords.location[newPosition];
+            
+            
             switch(currentPlayer){
                 case 0:
-                    //g.drawImage(p1IMG,)
+                    g.drawImage(p1Image, position.x, position.y, pieceSize, pieceSize, null);
+                    
             }
-            
-            
-            
-            
         }
     }
 

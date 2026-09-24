@@ -2,13 +2,12 @@
 
 
 
-public class Spaces extends AbstractSpace {
+public class Spaces  {
 
     public String name;
     public int position;
 
     public Spaces(String name, int position){
-        super(position);
         
         this.name = name;
         this.position = position;
