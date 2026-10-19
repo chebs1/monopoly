@@ -25,7 +25,8 @@ public class AssetManager
 
         if (input == null)
         {
-            throw new FileNotFoundException("Could not find image: images/" + path);
+            // Also load images when running directly from the project folder.
+            return ImageIO.read(new File("images", path));
         }
 
         try (InputStream imageInput = input)

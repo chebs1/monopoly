@@ -6,7 +6,9 @@ import java.util.ArrayList;
 
 public class player
 {
-    private game Game;
+    public boolean bankrupt = false;
+    public boolean inJail = false;
+    public int jailTurns = 0;
 
     private int money = 0;
     private String playerName;
@@ -31,7 +33,7 @@ public class player
         return money;
     }
 
-    public void setName(){
+    public void setName(String playerName){
         this.playerName = playerName;
     }
 
@@ -41,6 +43,17 @@ public class player
 
     public void move(int spaces) {
         position = (position + spaces) % 40;
+    }
+
+    public void sendToJail(){
+        position = 10;
+        inJail = true;
+        jailTurns = 0;
+    }
+
+    public void leaveJail(){
+        inJail = false;
+        jailTurns = 0;
     }
 
     public void addMoney(int amount) {
