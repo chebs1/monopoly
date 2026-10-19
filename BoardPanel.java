@@ -1,4 +1,4 @@
-package Java.MONOPOLY;
+ 
 
 import java.awt.*;
 import javax.swing.*;
@@ -11,6 +11,10 @@ import java.util.ArrayList;
 public class BoardPanel extends JPanel implements ActionListener{
     int margin = 50;
     int boardsize = 792;
+    int propertyHeight = cornerSize;
+    int propertyWidth = (boardsize - (2*cornerSize))/9; //66
+    int pieceSize = 50;
+    int start = 742;
     public boolean playing = false;
     boolean settings = false;
     JButton startButton;
@@ -135,14 +139,45 @@ public class BoardPanel extends JPanel implements ActionListener{
         if(e.getSource() == startButton){
             playing = true;
             game.beginGame();
+            game.startGame = true;
+            endTurnButton.setVisible(false);
+            diceButton.setVisible(false);
         }
         if(e.getSource() == settingsButton){
             settings = true;
             settingsPanel.setVisible(true);
+            settingsPanel.moneyField.setVisible(true);
+            settingsPanel.applyButton.setVisible(true);
+            settingsPanel.howManyPlayers.setVisible(true);
+            settingsPanel.howMuchMoney.setVisible(true);
+            settingsPanel.howManyRounds.setVisible(true);
+            settingsPanel.roundsField.setVisible(true);
+            settingsPanel.player1.setVisible(true);
+            settingsPanel.player2.setVisible(true);
+            settingsPanel.player3.setVisible(true);
+            settingsPanel.player4.setVisible(true);
+            endTurnButton.setVisible(false);
+            diceButton.setVisible(false);
         }
         if(e.getSource() == backButton){
             settings = false;
             settingsPanel.setVisible(false);
+            settingsPanel.howManyPlayers.setVisible(false);
+            settingsPanel.howMuchMoney.setVisible(false);
+            settingsPanel.howManyRounds.setVisible(false);
+            settingsPanel.roundsField.setVisible(false);
+            settingsPanel.playerField1.setVisible(false);
+            settingsPanel.playerField2.setVisible(false);
+            settingsPanel.playerField3.setVisible(false);
+            settingsPanel.playerField4.setVisible(false);
+            settingsPanel.moneyField.setVisible(false);
+            settingsPanel.applyButton.setVisible(false);
+            settingsPanel.player1.setVisible(false);
+            settingsPanel.player2.setVisible(false);
+            settingsPanel.player3.setVisible(false);
+            settingsPanel.player4.setVisible(false);
+            endTurnButton.setVisible(false);
+            diceButton.setVisible(false);
         }
         if(e.getSource() == diceButton){
             diceRoll();
@@ -265,6 +300,24 @@ public class BoardPanel extends JPanel implements ActionListener{
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createLineBorder(color.darker(), 2));
         button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    }
+
+    @Override
+    protected void paintComponent(Graphics g)
+    {
+        super.paintComponent(g);
+        //board
+        startButton.setVisible(!playing);
+        settingsButton.setVisible(!playing);
+        diceButton.setVisible(playing);
+        endTurnButton.setVisible(playing);
+        backButton.setVisible(settings);
+
+        if(!playing){
+            if (scImage != null) {
+                g.drawImage(scImage, 0, 0, 900, 900, this);
+            }
+        }
     }
 
     public void drawPlayerCards(Graphics g){

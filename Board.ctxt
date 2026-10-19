@@ -5,5 +5,5 @@ comment1.target=Board()
 comment2.params=
 comment2.target=void\ createBoard()
 comment3.params=position
-comment3.target=Java.MONOPOLY.Spaces\ getSpaces(int)
+comment3.target=Spaces\ getSpaces(int)
 numComments=4

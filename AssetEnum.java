@@ -1,4 +1,4 @@
-package Java.MONOPOLY;
+ 
 
 
 public enum AssetEnum

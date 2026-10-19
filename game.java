@@ -1,4 +1,3 @@
-package Java.MONOPOLY;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -9,10 +8,18 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class game{
+    private Settings settings;
     private Board board = new Board();
     public dice dice = new dice();
     public List<player> numOfPlayers = new ArrayList<>();
+    private player players;
+    private BoardPanel bPanel;
+    private Spaces Spaces;
+    private SpaceCoords coords;
 
+    int pieceSize = 50;
+    int start = 742;
+    private int movement;
     int currentTurn = 0;
     int currentRound = 1;
     int rounds = 20;
@@ -22,15 +29,37 @@ public class game{
     public boolean turnOver = false;
     public boolean endTurn = false;
     public boolean gameOver = false;
+    public boolean startTurn = false;
     public String message = "";
 
+    int x;
+    int y;
+    int xDirection;
+    int yDirection;
+    int speed;
+
+    String imagePath;
+    BufferedImage bgImage;
+    BufferedImage scImage;
+    BufferedImage seImage;
     BufferedImage p1Image;
     BufferedImage p2Image;
     BufferedImage p3Image;
     BufferedImage p4Image;
-
+    BufferedImage diceIMG;
+    BufferedImage p1Image;
+    BufferedImage p2Image;
+    BufferedImage p3Image;
+    BufferedImage p4Image;
     public game(){
+        turnSystem();
         try{
+            loadImage();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
             loadImage();
         }
         catch(IOException e){
@@ -70,6 +99,10 @@ public class game{
         message = getCurrentPlayer().getName() + ", roll the dice.";
     }
 
+    public void displayTurn(){
+        System.out.println("Current Player is " + getCurrentTurn());
+    }
+
     // Each click finishes one turn, so this does not need an endless loop.
     public void turnSystem(){
         if(!startGame || !endTurn || !turnOver || extraRoll || gameOver){
@@ -80,6 +113,55 @@ public class game{
             if(currentTurn == numOfPlayers.size()){
                 currentTurn = 0;
                 currentRound++;
+            }
+        }while(numOfPlayers.get(currentTurn).bankrupt);
+    }
+
+    public void drawIcons(Graphics g){
+        if(startGame){
+            int count = numOfPlayers.size();
+            switch(count){
+                case 1:
+                    if (p1Image != null){
+                        g.drawImage(p1Image, start, start, pieceSize, pieceSize, null);
+                    }
+                    break;
+                case 2:
+                    if (p1Image != null){
+                        g.drawImage(p1Image, start, start, pieceSize, pieceSize, null);
+                    }
+                    if(p2Image != null){
+                        g.drawImage(p2Image, start, start+50, pieceSize, pieceSize, null);
+                    }
+                    break;
+                case 3:
+                    if (p1Image != null){
+                        g.drawImage(p1Image, start, start, pieceSize, pieceSize, null);
+                    }
+                    if(p2Image != null){
+                        g.drawImage(p2Image, start, start+50, pieceSize, pieceSize, null);
+                    }
+                    if(p3Image != null){
+                        g.drawImage(p3Image, start+50, start, pieceSize, pieceSize, null);
+                    }
+                    break;
+                case 4:
+                    if (p1Image != null){
+                        g.drawImage(p1Image, start, start, pieceSize, pieceSize, null);
+                    }
+                    if(p2Image != null){
+                        g.drawImage(p2Image, start, start+50, pieceSize, pieceSize, null);
+                    }
+                    if(p3Image != null){
+                        g.drawImage(p3Image, start+50, start, pieceSize, pieceSize, null);
+                    }
+                    if(p4Image != null){
+                        g.drawImage(p4Image, start+50, start+50, pieceSize, pieceSize, null);
+                    }
+                    break;
+            }
+        }
+    }
             }
         }while(numOfPlayers.get(currentTurn).bankrupt);
 
@@ -93,6 +175,24 @@ public class game{
         else{
             message = getCurrentPlayer().getName() + ", roll the dice.";
         }
+    }
+
+    public void turn(){
+        bPanel.diceButton.setVisible(true);
+        if(dice.diceRolled == true){
+            bPanel.diceButton.setVisible(false);
+            moveIcons();
+            bPanel.endTurnButton.setVisible(true);
+        }
+        if(endTurn){
+            bPanel.endTurnButton.setVisible(false);
+        }
+
+    }
+
+    public void moveTo(int x, int y){
+        this.x = x;
+        this.y = y;
     }
 
     public void moveIcons(){
@@ -148,6 +248,7 @@ public class game{
         landOnSpace();
         if(extraRoll && !gameOver){
             message += "\nDoubles! Roll again before ending your turn.";
+        }
         }
     }
 

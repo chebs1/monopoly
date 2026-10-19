@@ -1,4 +1,4 @@
-package Java.MONOPOLY;
+ 
 
 import javax.swing.*;
 import java.awt.*;
@@ -47,6 +47,32 @@ public class Settings{
             playerCount = 4;
             updatePFields();
         });
+
+        playerField1.addActionListener(event -> {
+            p1 = playerField1.getText();
+        });
+
+        playerField2.addActionListener(event -> {
+            p2 = playerField2.getText();
+        });
+
+        playerField3.addActionListener(event -> {
+            p3 = playerField3.getText();
+        });
+
+        playerField4.addActionListener(event -> {
+            p4 = playerField4.getText();
+        });
+
+        moneyField.addActionListener(event -> {
+        });
+
+        roundsField.addActionListener(event -> {
+        });
+
+        howManyPlayers.setFont(new Font("Arial", Font.BOLD, 16));
+        howMuchMoney.setFont(new Font("Arial", Font.BOLD, 16));
+        howManyRounds.setFont(new Font("Arial", Font.BOLD, 16));
 
         howManyPlayers.setBounds(50, 350, 200, 40);
         howMuchMoney.setBounds(250, 350, 250, 40);
@@ -138,6 +164,55 @@ public class Settings{
         playerField2.setVisible(visible && playerCount >= 2);
         playerField3.setVisible(visible && playerCount >= 3);
         playerField4.setVisible(visible && playerCount >= 4);
+    }
+
+    public void apply() {
+        try{
+            int startingMoney = Integer.parseInt(moneyField.getText());
+            startingMoney = Integer.valueOf(moneyField.getText());
+            System.out.println("Money Valid");
+        }
+        catch (NumberFormatException e) {
+            System.out.println("Money Not Valid");
+        }
+        try{
+            int rounds = Integer.parseInt(roundsField.getText());
+            rounds = Integer.valueOf(roundsField.getText());
+            System.out.println("Rounds Valid");
+        }
+        catch(NumberFormatException e){
+            System.out.println("Rounds Not Valid");
+        }
+        switch(playerCount){
+            case 1:
+                game.addPlayers(new player(p1, startingMoney, startingPosition));
+                break;
+            case 2:
+                game.addPlayers(new player(p1, startingMoney, startingPosition));
+                game.addPlayers(new player(p2, startingMoney, startingPosition));
+                break;
+            case 3:
+                game.addPlayers(new player(p1, startingMoney, startingPosition));
+                game.addPlayers(new player(p2, startingMoney, startingPosition));
+                game.addPlayers(new player(p3, startingMoney, startingPosition));
+                break;
+            case 4:
+                game.addPlayers(new player(p1, startingMoney, startingPosition));
+                game.addPlayers(new player(p2, startingMoney, startingPosition));
+                game.addPlayers(new player(p3, startingMoney, startingPosition));
+                game.addPlayers(new player(p4, startingMoney, startingPosition));
+                break;
+        }
+    }
+    }
+    
+    public void isNum(){
+        try{ int money = Integer.parseInt(moneyField.getText());
+                    startingMoney = Integer.valueOf(moneyField.getText());
+                    }
+                    catch (NumberFormatException e) {
+                    System.out.println("Not A Valid Number");
+                    }
     }
 
     public void updatePFields(){

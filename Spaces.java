@@ -1,13 +1,14 @@
-package Java.MONOPOLY;
+ 
 
 
 
-public class Spaces {
+public class Spaces  {
 
-    private String name;
-    private int position;
+    public String name;
+    public int position;
 
     public Spaces(String name, int position){
+        
         this.name = name;
         this.position = position;
     }
